@@ -25,7 +25,7 @@ COPY . /app
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-ENTRYPOINT ["python", "-u", "telegramRSSbot.py"]
+ENTRYPOINT ["python", "-u", "src/entrypoint.py"]
 
 
 
