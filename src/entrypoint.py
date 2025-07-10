@@ -383,20 +383,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-
-
-
-
-# في نهاية src/entrypoint.py
-import threading
-from http.server import BaseHTTPRequestHandler, HTTPServer
-
-def run_fake_web():
-    class Handler(BaseHTTPRequestHandler):
-        def do_GET(self):
-            self.send_response(200)
-            self.end_headers()
-            self.wfile.write(b"Bot is running.")
-    HTTPServer(('0.0.0.0', 10000), Handler).serve_forever()
-
-threading.Thread(target=run_fake_web, daemon=True).start()
